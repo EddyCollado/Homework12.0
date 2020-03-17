@@ -5,7 +5,7 @@ CREATE DATABASE employee_db;
 USE employee_db;
 
     CREATE TABLE manager (
-        id NOT NULL AUTO_INCREMENT,
+        id INT AUTO_INCREMENT NOT NULL,
         manager_name VARCHAR(255) NOT NULL,
         PRIMARY KEY (id)
     );
