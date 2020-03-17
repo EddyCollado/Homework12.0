@@ -181,6 +181,27 @@ function addEmployee() {
         });
 }
 
+function updateEmployee() {
+    inquirer
+        .prompt([{
+                type: "input",
+                message: "Which employee would you like to update?",
+                name: "employeeUpdate"
+            },
+            {
+                type: "input",
+                message: "Enter the updated role:",
+                name: "updateRole"
+            }
+        ]).then(function (answer) {
+            connection.query("UPDATE employee SET role_id=? WHERE first_name=?", [answer.updateRole, answer.employeeUpdate], function (err, res) {
+                if (err) throw err;
+                console.table(res);
+                console.log("successfully added!");
+                startScreen();
+            });
+        });
+}
 
 function quit() {
     connection.end();
