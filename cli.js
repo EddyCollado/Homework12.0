@@ -239,6 +239,57 @@ function viewEmployees() {
     });
 }
 
+function deleteEmployee() {
+    inquirer
+        .prompt({
+            name: "id",
+            type: "input",
+            message: "Enter Employee id:"
+        }).then(function (answer) {
+            var query = "DELETE FROM employee WHERE id=? ";
+            connection.query(query, [answer.id], function (err, res) {
+                if (err) throw err;
+                console.log("deleted successfully!");
+                viewEmployees();
+                startScreen();
+            });
+        });
+}
+
+function deleteRole() {
+    inquirer
+        .prompt({
+            name: "id",
+            type: "input",
+            message: "Enter Role id:"
+        }).then(function (answer) {
+            var query = "DELETE FROM role WHERE id=? ";
+            connection.query(query, [answer.id], function (err, res) {
+                if (err) throw err;
+                console.log("deleted successfully!");
+                viewEmployees();
+                startScreen();
+            });
+        });
+}
+
+function deleteDepartment() {
+    inquirer
+        .prompt({
+            name: "id",
+            type: "input",
+            message: "Enter Manager id:"
+        }).then(function (answer) {
+            var query = "DELETE FROM departmente WHERE id=? ";
+            connection.query(query, [answer.id], function (err, res) {
+                if (err) throw err;
+                console.log("deleted successfully!");
+                viewEmployees();
+                startScreen();
+            });
+        });
+}
+
 function quit() {
     connection.end();
     process.exit();
