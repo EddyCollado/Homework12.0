@@ -203,6 +203,42 @@ function updateEmployee() {
         });
 }
 
+function viewManagers() {
+    let query = "SELECT * FROM manager";
+    connection.query(query, function (err, res) {
+        if (err) throw err;
+        console.table(res);
+        startScreen();
+    });
+}
+
+function viewDepartments() {
+    let query = "SELECT * FROM department";
+    connection.query(query, function (err, res) {
+        if (err) throw err;
+        console.table(res);
+        startScreen();
+    });
+}
+
+function viewRoles() {
+    let query = "SELECT * FROM role";
+    connection.query(query, function (err, res) {
+        if (err) throw err;
+        console.table(res);
+        startScreen();
+    });
+}
+
+function viewEmployees() {
+    let query = "SELECT * FROM employee";
+    connection.query(query, function (err, res) {
+        if (err) throw err;
+        console.table(res);
+        startScreen();
+    });
+}
+
 function quit() {
     connection.end();
     process.exit();
